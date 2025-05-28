@@ -1,51 +1,53 @@
-/*[CSS DA PÁGINA DE MONTAGEM - styles-montagem.css]*/
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;600&display=swap");
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d1117;
-  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  background: url("img/pngtree-rainbow-blue-sky-clouds-hot-air-balloon-paper-cut-background-image_315915.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
 header {
-  background-color: #6ac27d;
+  background: linear-gradient(90deg, #ff8a5c, #ffcc70);
   padding: 20px;
   text-align: center;
-  border-bottom: 4px solid #184097;
+  border-bottom: 4px solid #ff8a5c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #040504;
+  font-family: "Bubblegum Sans", cursive;
+  color: #ffffff;
   margin: 0;
+  font-size: 2.2em;
 }
 
 .barra-superior {
   display: flex;
-  overflow-x: auto;
-  background-color: #112b3c;
-  padding: 15px;
-  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: 4px solid #ff8a5c;
+  padding: 20px;
+  gap: 20px;
 }
 
 .peca {
   width: 150px;
   height: 100px;
-  border: 2px solid #3a9927;
-  border-radius: 8px;
-  background: #1b1f23;
+  border: 2px dashed #ff8c42;
+  border-radius: 12px;
+  background: #fff5e6;
   cursor: grab;
-  color: #28a146;
-  font-weight: bold;
-  
-  /* Flex para centralizar */
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Remove padding */
-  padding: 0;
+  transition: transform 0.2s;
 }
 
 .peca:active {
@@ -53,22 +55,26 @@ h1 {
 }
 
 .peca img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
   display: block;
 }
 
 .area-montagem {
-  flex: 1;
-  background-color: #1c1c1c;
-  border-top: 4px solid #145374;
+  width: 90%;
+  max-width: 1200px;
+  height: 700px;
+  background-color: #ffffff;
+  margin: 40px auto;
   display: flex;
   flex-wrap: wrap;
-  padding: 30px;
   justify-content: center;
   align-items: flex-start;
+  border: 6px solid #fcbf49;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .area-montagem .peca {

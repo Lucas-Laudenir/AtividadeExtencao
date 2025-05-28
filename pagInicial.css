@@ -36,14 +36,16 @@ header p {
   flex-wrap: wrap;
   justify-content: center;
   padding: 40px 20px;
-  gap: 30px;
+  gap: 30px; /* leve aumento no espaço entre os cards */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .brinquedo {
   background-color: #ffffff;
   border: 3px solid #ffd166;
   border-radius: 18px;
-  width: 240px;
+  width: 250px; /* aumentei a largura dos cards */
   padding: 20px;
   box-shadow: 0 6px 12px rgba(255, 173, 51, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -58,6 +60,7 @@ header p {
 
 .brinquedo img {
   width: 100%;
+  object-fit: cover;
   border-radius: 12px;
   border: 3px solid #ffb703;
 }

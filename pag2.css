@@ -1,0 +1,77 @@
+/*[CSS DA PÁGINA DE MONTAGEM - styles-montagem.css]*/
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: #0f3d3e;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #00ffcc;
+}
+
+h1 {
+  color: #00ffcc;
+  margin: 0;
+}
+
+.barra-superior {
+  display: flex;
+  overflow-x: auto;
+  background-color: #112b3c;
+  padding: 15px;
+  gap: 15px;
+}
+
+.peca {
+  max-width: 200px;
+  padding: 5px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  background: #1b1f23;
+  cursor: grab;
+  color: #00ffcc;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.peca:active {
+  transform: scale(1.1);
+}
+
+.peca {
+  width: 200px;
+  height: 250px;
+}
+.peca img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.area-montagem {
+  flex: 1;
+  background-color: #1c1c1c;
+  border-top: 4px solid #145374;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.area-montagem .peca {
+  margin: 10px;
+  cursor: default;
+}

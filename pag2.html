@@ -1,0 +1,48 @@
+<!-- [PÁGINA DE MONTAGEM - montagem.html] -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monte seu Brinquedo</title>
+  <link rel="stylesheet" href="pag2.css">
+</head>
+<body>
+  <header>
+    <h1>Área de Montagem</h1>
+  </header>
+  <div class="barra-superior">
+    <div class="peca" draggable="true">
+      <img src="img/61bb3530-f641-11ee-91c5-c92e09ae6ba7.jpg.webp" alt="Peça 1">
+    </div>
+    <div class="peca" draggable="true">
+      <img src="peca2.png" alt="Peça 2">
+    </div>
+    <div class="peca" draggable="true">
+      <img src="img/61bb3530-f641-11ee-91c5-c92e09ae6ba7.jpg.webp" alt="Peça 3">
+    </div>
+  </div>
+  <div class="area-montagem" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      const data = ev.dataTransfer.getData("text");
+      const peca = document.getElementById(data).cloneNode(true);
+      peca.removeAttribute("id");
+      ev.target.appendChild(peca);
+    }
+
+    document.querySelectorAll('.peca').forEach((el, index) => {
+      el.id = 'peca-' + index;
+      el.addEventListener('dragstart', function(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      });
+    });
+  </script>
+</body>
+</html>

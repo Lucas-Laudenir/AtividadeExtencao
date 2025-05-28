@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monte seu Brinquedo</title>
     <link rel="stylesheet" href="pag2.css" />
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   </head>
   <body>
     <header>
       <h1>Área de Montagem dos Brinquedos</h1>
     </header>
+
     <div class="barra-superior">
       <div class="peca" draggable="true">
         <img src="img/Design sem nome.png" alt="Peça 1" />
@@ -22,11 +24,18 @@
         <img src="img/Design sem nome (1).png" alt="Peça 3" />
       </div>
     </div>
+
     <div
       class="area-montagem"
+      id="areaMontagem"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
     ></div>
+
+    <div class="botoes">
+      <button onclick="voltarInicio()">⬅ Voltar</button>
+      <button onclick="salvarBrinquedo()">💾 Salvar Brinquedo</button>
+    </div>
 
     <script>
       function allowDrop(ev) {
@@ -47,6 +56,20 @@
           ev.dataTransfer.setData("text", ev.target.id);
         });
       });
+
+      function voltarInicio() {
+        window.location.href = "pagInicial.html";
+      }
+
+      function salvarBrinquedo() {
+        const area = document.getElementById("areaMontagem");
+        html2canvas(area).then((canvas) => {
+          const link = document.createElement("a");
+          link.download = "meu-brinquedo.png";
+          link.href = canvas.toDataURL();
+          link.click();
+        });
+      }
     </script>
   </body>
 </html>

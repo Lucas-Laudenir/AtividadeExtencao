@@ -10,14 +10,14 @@ body {
 }
 
 header {
-  background-color: #0f3d3e;
+  background-color: #6ac27d;
   padding: 20px;
   text-align: center;
-  border-bottom: 4px solid #00ffcc;
+  border-bottom: 4px solid #184097;
 }
 
 h1 {
-  color: #00ffcc;
+  color: #040504;
   margin: 0;
 }
 
@@ -30,34 +30,34 @@ h1 {
 }
 
 .peca {
-  max-width: 200px;
-  padding: 5px;
-  border: 2px solid #00ffcc;
+  width: 150px;
+  height: 100px;
+  border: 2px solid #3a9927;
   border-radius: 8px;
   background: #1b1f23;
   cursor: grab;
-  color: #00ffcc;
+  color: #28a146;
   font-weight: bold;
-  text-align: center;
+  
+  /* Flex para centralizar */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  
+  /* Remove padding */
+  padding: 0;
 }
 
 .peca:active {
   transform: scale(1.1);
 }
 
-.peca {
-  width: 200px;
-  height: 250px;
-}
 .peca img {
-  width: 100%;
-  height: auto;
-  display: block;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   border-radius: 4px;
+  display: block;
 }
 
 .area-montagem {

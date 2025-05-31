@@ -45,7 +45,7 @@ header p {
   background-color: #ffffff;
   border: 3px solid #ffd166;
   border-radius: 18px;
-  width: 250px; /* aumentei a largura dos cards */
+  width: 250px; 
   padding: 20px;
   box-shadow: 0 6px 12px rgba(255, 173, 51, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;

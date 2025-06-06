@@ -202,19 +202,6 @@ h1 {
   border-radius: 6px;
 }
 
-.modelo-peca.quadrado {
-  width: 50px;
-  height: 50px;
-  background-color: #3498db;
-}
-
-.modelo-peca.circulo {
-  width: 50px;
-  height: 50px;
-  background-color: #e74c3c;
-  border-radius: 50%;
-}
-
 .modelo-peca.sombra {
   opacity: 0.3;
   border: 2px dashed #ff8c42;
@@ -224,24 +211,38 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-/* Modelo das peças sombra — igual aos atuais modelo-peca, só translúcidos */
-
 .modelo-peca.sombra.barra {
-  width: 100px;
-  height: 20px;
+  width: 500px;
+  height: 100px;
   background-color: #4caf50;
   border-radius: 6px;
 }
 
-.modelo-peca.sombra.quadrado {
-  width: 50px;
-  height: 50px;
-  background-color: #3498db;
+
+.modelo-peca.sombra.x {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  pointer-events: none;
 }
 
-.modelo-peca.sombra.circulo {
-  width: 50px;
-  height: 50px;
-  background-color: #e74c3c;
-  border-radius: 50%;
+.modelo-peca.sombra.x::before,
+.modelo-peca.sombra.x::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 100%;
+  background-color: #ff8c42;
+  opacity: 0.3;
+  transform-origin: center;
+}
+
+.modelo-peca.sombra.x::before {
+  transform: rotate(45deg);
+}
+
+.modelo-peca.sombra.x::after {
+  transform: rotate(-45deg);
 }

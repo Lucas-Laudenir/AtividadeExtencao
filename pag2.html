@@ -1,9 +1,8 @@
-<!-- [PÁGINA DE MONTAGEM - montagem.html] -->
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Monte seu Brinquedo</title>
     <link rel="stylesheet" href="pag2.css" />
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
@@ -14,62 +13,32 @@
     </header>
 
     <div class="barra-superior">
-      <div class="peca" draggable="true">
-        <img src="img/Design sem nome.png" alt="Peça 1" />
+      <div class="peca">
+        <div class="barra" draggable="true"></div>
       </div>
-      <div class="peca" draggable="true">
-        <img src="img/BARRA.png" alt="Peça 2" />
+      <div class="peca">
+        <div class="quadrado forma" draggable="true"></div>
       </div>
-      <div class="peca" draggable="true">
-        <img src="img/Design sem nome (1).png" alt="Peça 3" />
+      <div class="peca">
+        <div class="circulo forma" draggable="true"></div>
       </div>
     </div>
 
-    <div
-      class="area-montagem"
-      id="areaMontagem"
-      ondrop="drop(event)"
-      ondragover="allowDrop(event)"
-    ></div>
+    <!-- Container principal só com área de montagem -->
+    <div class="container-principal">
+      <div class="area-montagem" id="areaMontagem">
+        <!-- Peças sombra modelo fixas na área -->
+        <div class="modelo-peca sombra barra" style="top: 50px; left: 30px;"></div>
+        <div class="modelo-peca sombra quadrado" style="top: 120px; left: 80px;"></div>
+        <div class="modelo-peca sombra circulo" style="top: 190px; left: 130px;"></div>
+      </div>
+    </div>
 
     <div class="botoes">
-      <button onclick="voltarInicio()">⬅ Voltar</button>
-      <button onclick="salvarBrinquedo()">💾 Salvar Brinquedo</button>
+      <button id="btn-voltar">⬅ Voltar</button>
+      <button id="btn-salvar">💾 Salvar Brinquedo</button>
     </div>
 
-    <script>
-      function allowDrop(ev) {
-        ev.preventDefault();
-      }
-
-      function drop(ev) {
-        ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-        const peca = document.getElementById(data).cloneNode(true);
-        peca.removeAttribute("id");
-        ev.target.appendChild(peca);
-      }
-
-      document.querySelectorAll(".peca").forEach((el, index) => {
-        el.id = "peca-" + index;
-        el.addEventListener("dragstart", function (ev) {
-          ev.dataTransfer.setData("text", ev.target.id);
-        });
-      });
-
-      function voltarInicio() {
-        window.location.href = "pagInicial.html";
-      }
-
-      function salvarBrinquedo() {
-        const area = document.getElementById("areaMontagem");
-        html2canvas(area).then((canvas) => {
-          const link = document.createElement("a");
-          link.download = "meu-brinquedo.png";
-          link.href = canvas.toDataURL();
-          link.click();
-        });
-      }
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>

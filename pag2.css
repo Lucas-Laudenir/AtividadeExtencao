@@ -27,6 +27,15 @@ h1 {
   font-size: 2.2em;
 }
 
+.peca-sem-fundo {
+  border: none !important;
+  background: transparent !important;
+  cursor: default !important;
+  width: auto; /* ou o tamanho que quiser */
+  height: auto;
+  padding: 0;
+}
+
 .barra-superior {
   display: flex;
   flex-wrap: wrap;
@@ -48,40 +57,74 @@ h1 {
   justify-content: center;
   align-items: center;
   transition: transform 0.2s;
+  position: relative; /* para o handle de redimensionar */
 }
 
 .peca:active {
   transform: scale(1.1);
 }
 
-.peca img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
+.forma {
+  width: 50px;
+  height: 50px;
+  cursor: grab;
+  border: 2px solid #000;
 }
 
+.quadrado {
+  background-color: #3498db;
+}
+
+.circulo {
+  background-color: #e74c3c;
+  border-radius: 50%;
+}
+
+.barra {
+  width: 100px;
+  height: 20px;
+  background-color: #4CAF50;
+  border: 2px solid #333;
+  border-radius: 4px;
+  cursor: move; /* cursor para mover */
+}
+
+/* Estilo da área de montagem */
 .area-montagem {
   width: 90%;
   max-width: 1200px;
   height: 700px;
   background-color: #ffffff;
   margin: 40px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  position: relative; /* para posicionar peças absolute */
   border: 6px solid #fcbf49;
   border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
+/* Peças dentro da área de montagem */
 .area-montagem .peca {
   margin: 10px;
-  cursor: default;
+  cursor: move; /* sempre mover dentro da montagem */
+  user-select: none; /* evita seleção de texto */
 }
 
+/* Handle para redimensionar */
+.resize-handle {
+  width: 12px;
+  height: 12px;
+  background-color: #007bff;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  cursor: se-resize;
+  border-radius: 2px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  user-select: none;  
+}
+
+/* Botões */
 .botoes {
   display: flex;
   justify-content: center;
@@ -101,5 +144,104 @@ h1 {
 }
 
 .botoes button:hover {
-  background-color: #fcbf49;
+  background-color: #fcae3b;
+}
+
+
+.container-principal {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.area-montagem {
+  width: 700px;
+  height: 700px;
+  background-color: #ffffff;
+  border: 6px solid #fcbf49;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+#modeloLateral {
+  width: 250px;
+  height: 700px;
+  background-color: #fff5e6;
+  border: 4px solid #ff8a5c;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  position: relative;
+}
+
+#modeloLateral h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #ff8a5c;
+}
+
+.modelo-peca {
+  position: absolute;
+  border-radius: 12px;
+  border: 2px dashed #ff8c42;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Modelos das peças no quadro lateral */
+.modelo-peca.barra {
+  width: 100px;
+  height: 20px;
+  background-color: #4caf50;
+  border-radius: 6px;
+}
+
+.modelo-peca.quadrado {
+  width: 50px;
+  height: 50px;
+  background-color: #3498db;
+}
+
+.modelo-peca.circulo {
+  width: 50px;
+  height: 50px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+}
+
+.modelo-peca.sombra {
+  opacity: 0.3;
+  border: 2px dashed #ff8c42;
+  cursor: default;
+  user-select: none;
+  pointer-events: none; /* para não atrapalhar drag e clique */
+  transition: background-color 0.3s ease;
+}
+
+/* Modelo das peças sombra — igual aos atuais modelo-peca, só translúcidos */
+
+.modelo-peca.sombra.barra {
+  width: 100px;
+  height: 20px;
+  background-color: #4caf50;
+  border-radius: 6px;
+}
+
+.modelo-peca.sombra.quadrado {
+  width: 50px;
+  height: 50px;
+  background-color: #3498db;
+}
+
+.modelo-peca.sombra.circulo {
+  width: 50px;
+  height: 50px;
+  background-color: #e74c3c;
+  border-radius: 50%;
 }
